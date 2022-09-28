@@ -4,7 +4,8 @@ const articleRouter = require('./Routes/articles')
 const app = express()
 const methodOverride = require('method-override')
 const Article = require('./models/article')
-const port = 100
+require("dotenv").config();
+const port =  process.env.PORT ||100
 
 //Mongo Setup
 const connectDB = require('./db/connect')
@@ -25,7 +26,7 @@ const start = async () => {
     try {
         await connectDB(URI)
         app.listen(port)
-        console.log("Server started at port 100")
+        console.log("Server started at port 100",)
     } catch (error) {
         console.log(error)
     }
